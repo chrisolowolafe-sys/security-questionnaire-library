@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GitHub Pages → Cloudflare Pages redirect -->
+  <script>
+    (function() {
+      var gh = 'chrisolowolafe-sys.github.io';
+      var cf = 'https://security-questionnaire-library.chrisolowolafe.workers.dev';
+      if (window.location.hostname === gh) {
+        var path = window.location.pathname.replace('/security-questionnaire-library', '');
+        window.location.replace(cf + path + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Security Questionnaire Library","description":"Pre-written enterprise security questionnaire responses mapped to ISO 27001, SOC 2, NIST CSF, GDPR and PIPEDA. Built by Chris Olowo, PMP®.","url":"https://security-questionnaire-library.chrisolowolafe.workers.dev","applicationCategory":"BusinessApplication","author":{"@type":"Person","name":"Chris Olowo, PMP®","url":"https://chris-olowo-grc-portfolio.pages.dev"}}
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Questionnaire Library | Chris Olowo, PMP®</title>
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <meta name="description" content="Pre-written enterprise security questionnaire response library. 80+ responses across 8 categories mapped to ISO 27001, SOC 2, NIST CSF, GDPR and PIPEDA. Built by Chris Olowo, PMP®." />
+  <meta name="author" content="Chris Olowo, PMP®" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://security-questionnaire-library.chrisolowolafe.workers.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Security Questionnaire Library — Chris Olowo, PMP®" />
+  <meta property="og:description" content="Pre-written enterprise security questionnaire responses. ISO 27001, SOC 2, NIST CSF, GDPR & PIPEDA mapped." />
+  <meta property="og:url" content="https://security-questionnaire-library.chrisolowolafe.workers.dev/" />
+  <meta property="og:site_name" content="Security Questionnaire Library" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Security Questionnaire Library" />
+  <meta name="twitter:description" content="Pre-written enterprise security questionnaire responses. ISO 27001, SOC 2, NIST CSF, GDPR & PIPEDA mapped." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path d='M16 4L6 8v8c0 7 5 13.5 10 15 5-1.5 10-8 10-15V8L16 4z' fill='%23f5a623' opacity='.9'/><path d='M11 13h10M11 17h7' stroke='white' stroke-width='1.8' stroke-linecap='round'/></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important;}}
+    :root{
+      --bg-void:#080c14;--bg-base:#0d1117;--bg-elevated:#161b27;--bg-surface:#1c2333;--bg-hover:#212840;
+      --border:rgba(99,120,180,0.18);--border-strong:rgba(99,120,180,0.35);
+      --text-primary:#e8edf5;--text-secondary:#8b98b5;--text-muted:#556080;
+      --accent:#4f8ef7;--accent-dim:rgba(79,142,247,0.12);
+      --green:#2ecc8a;--green-dim:rgba(46,204,138,0.12);
+      --red:#f05252;--red-dim:rgba(240,82,82,0.12);
+      --orange:#f5a623;--orange-dim:rgba(245,166,35,0.12);
+      --yellow:#f5d020;--yellow-dim:rgba(245,208,32,0.12);
+      --purple:#9b6cff;--purple-dim:rgba(155,108,255,0.12);
+      --cyan:#22d3ee;--cyan-dim:rgba(34,211,238,0.12);
+      --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'IBM Plex Mono',monospace;
+      --radius:8px;--radius-lg:14px;--shadow:0 4px 24px rgba(0,0,0,0.45);--nh:58px;
+    }
+    body.light{
+      --bg-void:#f0f2f7;--bg-base:#f7f8fc;--bg-elevated:#fff;--bg-surface:#eef0f6;--bg-hover:#e4e8f2;
+      --border:rgba(60,80,140,0.13);--border-strong:rgba(60,80,140,0.28);
+      --text-primary:#0f1623;--text-secondary:#4a5578;--text-muted:#8892b0;
+      --accent:#2563eb;--accent-dim:rgba(37,99,235,0.1);
+      --green:#16a34a;--green-dim:rgba(22,163,74,0.1);
+      --orange:#d97706;--orange-dim:rgba(217,119,6,0.1);
+      --shadow:0 4px 24px rgba(0,0,0,0.08);
+    }
+    html{font-size:14px;scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--bg-void);color:var(--text-primary);line-height:1.6;min-height:100vh;}
+
+    /* TOPBAR */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nh);background:var(--bg-base);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 28px;gap:16px;backdrop-filter:blur(12px);}
+    .brand{display:flex;align-items:center;gap:10px;cursor:pointer;}
+    .brand-mark{width:32px;height:32px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,#f5a623,#d97706);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(245,166,35,.4);}
+    .brand-name{font-family:var(--font-display);font-size:14px;font-weight:800;color:var(--text-primary);}
+    .brand-tag{font-family:var(--font-mono);font-size:9px;color:var(--orange);letter-spacing:.08em;margin-top:1px;}
+    .tsep{flex:1;}
+    .tpill{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:var(--orange-dim);color:var(--orange);border:1px solid rgba(245,166,35,.25);}
+    .theme-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--bg-elevated);color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .15s,color .15s;}
+    .theme-btn:hover{background:var(--bg-hover);color:var(--text-primary);}
+
+    /* LAYOUT */
+    .page{padding-top:calc(var(--nh) + 32px);max-width:1080px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:80px;}
+
+    /* HERO */
+    .hero{padding:40px 0 32px;}
+    .eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:var(--font-display);font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--text-primary);line-height:1.15;margin-bottom:14px;}
+    .hero p{font-size:15px;color:var(--text-secondary);max-width:640px;line-height:1.7;margin-bottom:24px;}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+    .chip{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;padding:4px 10px;border-radius:20px;border:1px solid var(--border-strong);color:var(--text-muted);background:var(--bg-elevated);}
+    .chip.o{border-color:rgba(245,166,35,.35);color:var(--orange);background:var(--orange-dim);}
+    .chip.g{border-color:rgba(46,204,138,.35);color:var(--green);background:var(--green-dim);}
+    .chip.b{border-color:rgba(79,142,247,.35);color:var(--accent);background:var(--accent-dim);}
+    .chip.p{border-color:rgba(155,108,255,.35);color:var(--purple);background:var(--purple-dim);}
+
+    /* STATS ROW */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
+    .stat-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:16px 14px;}
+    .stat-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px;}
+    .stat-val{font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--text-primary);}
+    .stat-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
+
+    /* SEARCH & FILTER */
+    .search-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+    .search-input{flex:1;min-width:240px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:10px 16px;color:var(--text-primary);font-family:var(--font-body);font-size:13px;outline:none;transition:border-color .15s;}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(245,166,35,.12);}
+    .search-input::placeholder{color:var(--text-muted);}
+
+    /* CATEGORY FILTER */
+    .cat-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+    .cat-btn{padding:6px 14px;border-radius:20px;font-size:11.5px;font-weight:600;border:1px solid var(--border);background:var(--bg-elevated);color:var(--text-muted);cursor:pointer;transition:all .15s;font-family:var(--font-body);}
+    .cat-btn:hover{background:var(--bg-hover);color:var(--text-secondary);}
+    .cat-btn.active{background:var(--orange-dim);color:var(--orange);border-color:rgba(245,166,35,.35);}
+
+    /* FRAMEWORK FILTER */
+    .fw-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;align-items:center;}
+    .fw-label{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-right:4px;}
+    .fw-btn{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--bg-elevated);color:var(--text-muted);cursor:pointer;transition:all .15s;font-family:var(--font-mono);}
+    .fw-btn:hover{background:var(--bg-hover);}
+    .fw-btn.fw-iso{border-color:rgba(79,142,247,.35);color:var(--accent);}
+    .fw-btn.fw-iso.active{background:var(--accent-dim);}
+    .fw-btn.fw-soc{border-color:rgba(155,108,255,.35);color:var(--purple);}
+    .fw-btn.fw-soc.active{background:var(--purple-dim);}
+    .fw-btn.fw-nist{border-color:rgba(46,204,138,.35);color:var(--green);}
+    .fw-btn.fw-nist.active{background:var(--green-dim);}
+    .fw-btn.fw-gdpr{border-color:rgba(245,166,35,.35);color:var(--orange);}
+    .fw-btn.fw-gdpr.active{background:var(--orange-dim);}
+    .fw-btn.fw-pipeda{border-color:rgba(34,211,238,.35);color:var(--cyan);}
+    .fw-btn.fw-pipeda.active{background:var(--cyan-dim);}
+
+    /* RESULTS INFO */
+    .results-info{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-bottom:16px;letter-spacing:.04em;}
+
+    /* QUESTION CARDS */
+    .q-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-bottom:14px;transition:border-color .15s;}
+    .q-card:hover{border-color:var(--border-strong);}
+    .q-card-header{display:flex;align-items:start;justify-content:space-between;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
+    .q-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .cat-tag{font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;}
+    .q-number{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);}
+    .fw-tags{display:flex;gap:5px;flex-wrap:wrap;}
+    .fw-tag{font-family:var(--font-mono);font-size:9px;padding:2px 7px;border-radius:4px;font-weight:600;}
+    .fw-tag-iso{background:var(--accent-dim);color:var(--accent);border:1px solid rgba(79,142,247,.2);}
+    .fw-tag-soc{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(155,108,255,.2);}
+    .fw-tag-nist{background:var(--green-dim);color:var(--green);border:1px solid rgba(46,204,138,.2);}
+    .fw-tag-gdpr{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(245,166,35,.2);}
+    .fw-tag-pipeda{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(34,211,238,.2);}
+
+    .q-question{font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:10px;line-height:1.5;}
+    .q-response{font-size:13px;color:var(--text-secondary);line-height:1.75;background:var(--bg-surface);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px;border-left:3px solid var(--orange);}
+    .q-controls{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-bottom:10px;}
+    .q-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+    .copy-btn{padding:6px 14px;border-radius:20px;font-size:11.5px;font-weight:600;border:1px solid rgba(245,166,35,.35);background:var(--orange-dim);color:var(--orange);cursor:pointer;transition:all .15s;font-family:var(--font-body);display:flex;align-items:center;gap:5px;}
+    .copy-btn:hover{background:rgba(245,166,35,.2);}
+    .copy-btn.copied{background:var(--green-dim);color:var(--green);border-color:rgba(46,204,138,.35);}
+    .expand-btn{padding:6px 14px;border-radius:20px;font-size:11.5px;font-weight:600;border:1px solid var(--border);background:var(--bg-surface);color:var(--text-muted);cursor:pointer;transition:all .15s;font-family:var(--font-body);}
+    .expand-btn:hover{background:var(--bg-hover);color:var(--text-secondary);}
+    .q-evidence{font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-top:10px;padding:10px 14px;background:var(--bg-surface);border-radius:var(--radius);display:none;line-height:1.8;}
+    .q-evidence.open{display:block;}
+    .q-evidence strong{color:var(--text-secondary);}
+
+    /* EMPTY */
+    .empty-state{text-align:center;padding:64px 24px;color:var(--text-muted);}
+    .empty-state .esi{font-size:44px;margin-bottom:16px;}
+
+    /* PRINT / EXPORT */
+    .btn{padding:9px 20px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:var(--font-body);transition:all .15s;display:inline-flex;align-items:center;gap:7px;}
+    .btn-orange{background:var(--orange);color:#0d1117;box-shadow:0 2px 12px rgba(245,166,35,.3);}
+    .btn-orange:hover{background:#f5b84f;transform:translateY(-1px);}
+    .btn-ghost{background:var(--bg-elevated);color:var(--text-secondary);border:1px solid var(--border);}
+    .btn-ghost:hover{background:var(--bg-hover);color:var(--text-primary);}
+    .btn-sm{padding:6px 14px;font-size:12px;}
+    .top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center;}
+
+    /* TOAST */
+    #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg-elevated);border:1px solid var(--border-strong);color:var(--text-primary);padding:10px 22px;border-radius:24px;font-size:13px;font-weight:500;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;box-shadow:var(--shadow);white-space:nowrap;}
+    #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);margin-top:60px;padding:24px;text-align:center;font-size:11px;color:var(--text-muted);line-height:1.8;}
+    footer a{color:var(--text-muted);text-decoration:none;}
+    footer a:hover{color:var(--orange);}
+
+    /* PRINT */
+    @media print{.topbar,.search-bar,.cat-filter,.fw-filter,.top-actions,footer,#toast,.q-actions,.theme-btn,.tpill,.copy-btn,.expand-btn{display:none!important;}.page{padding-top:0;}body{background:white;color:black;}.q-card{border:1px solid #ccc;margin-bottom:10px;break-inside:avoid;}.q-response{background:#f9f9f9;border-left:3px solid #d97706;}.q-evidence{display:block!important;}}
+
+    /* RESPONSIVE */
+    @media(max-width:640px){.stats-row{grid-template-columns:1fr 1fr;}.q-card-header{flex-direction:column;}}
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <div class="brand-mark">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="brand-name">Security Questionnaire Library</div>
+      <div class="brand-tag">ISO 27001 · SOC 2 · NIST CSF · GDPR · PIPEDA</div>
+    </div>
+  </div>
+  <div class="tsep"></div>
+  <span class="tpill">GRC TOOL v1.0</span>
+  <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Enterprise Security Assurance</div>
+    <h1>Security Questionnaire<br>Response Library</h1>
+    <p>A structured library of pre-written, audit-quality responses to the most common enterprise security questionnaire categories. Every response maps to ISO 27001, SOC 2, NIST CSF, GDPR, and PIPEDA controls. Copy, customize, and use immediately.</p>
+    <div class="chips">
+      <span class="chip o">ISO 27001:2022</span>
+      <span class="chip g">NIST CSF 2.0</span>
+      <span class="chip p">SOC 2 Type II</span>
+      <span class="chip b">GDPR Art. 28</span>
+      <span class="chip">PIPEDA</span>
+      <span class="chip">80+ Responses</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row" id="stats-row"></div>
+
+  <!-- TOP ACTIONS -->
+  <div class="top-actions">
+    <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨 Print Library</button>
+    <button class="btn btn-ghost btn-sm" onclick="exportAll()">⬇ Export All (JSON)</button>
+    <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-left:4px">Click any response to copy it instantly</span>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <input class="search-input" id="search-input" type="text" placeholder="🔍 Search questions or responses…" oninput="renderLibrary()" />
+  </div>
+
+  <!-- CATEGORY FILTER -->
+  <div class="cat-filter" id="cat-filter"></div>
+
+  <!-- FRAMEWORK FILTER -->
+  <div class="fw-filter">
+    <span class="fw-label">Framework:</span>
+    <button class="fw-btn active" id="fw-all" onclick="setFw('all',this)">All</button>
+    <button class="fw-btn fw-iso" id="fw-iso" onclick="setFw('iso',this)">ISO 27001</button>
+    <button class="fw-btn fw-soc" id="fw-soc" onclick="setFw('soc',this)">SOC 2</button>
+    <button class="fw-btn fw-nist" id="fw-nist" onclick="setFw('nist',this)">NIST CSF</button>
+    <button class="fw-btn fw-gdpr" id="fw-gdpr" onclick="setFw('gdpr',this)">GDPR</button>
+    <button class="fw-btn fw-pipeda" id="fw-pipeda" onclick="setFw('pipeda',this)">PIPEDA</button>
+  </div>
+
+  <!-- RESULTS INFO -->
+  <div class="results-info" id="results-info"></div>
+
+  <!-- LIBRARY -->
+  <div id="library-container"></div>
+
+</div><!-- /page -->
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built by <a href="https://chris-olowo-grc-portfolio.pages.dev" target="_blank" rel="noopener noreferrer">Chris Olowo, PMP®</a> · GRC Analyst & Risk Practitioner · Calgary, Canada</p>
+  <p style="margin-top:6px">Responses are illustrative and should be customized to reflect your organization's actual controls · <a href="https://chris-olowo-grc-portfolio.pages.dev" target="_blank" rel="noopener noreferrer">Portfolio →</a></p>
+  <p style="margin-top:6px;opacity:.5">For demonstration and educational purposes only. Not legal or compliance advice.</p>
+</footer>
+
+<script>
+// ── HTTPS ENFORCEMENT ────────────────────────────────────────────────────────
+if(location.protocol==='http:'&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){
+  location.replace('https:'+location.href.slice(5));
+}
+
+// ── THEME ────────────────────────────────────────────────────────────────────
+(function(){try{if(localStorage.getItem('sql_theme')==='light')document.body.classList.add('light');}catch(e){}})();
+function toggleTheme(){
+  var l=document.body.classList.toggle('light');
+  try{localStorage.setItem('sql_theme',l?'light':'dark');}catch(e){}
+  document.querySelector('.theme-btn').textContent=l?'☀️':'🌙';
+}
+(function(){try{if(localStorage.getItem('sql_theme')==='light')document.querySelector('.theme-btn').textContent='☀️';}catch(e){}})();
+
+// ── TOAST ────────────────────────────────────────────────────────────────────
+var _tt;
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},2500);}
+
+// ── DATA ─────────────────────────────────────────────────────────────────────
+var LIBRARY=[
+  // ── DATA SECURITY ──────────────────────────────────────────────────────────
+  {id:'DS-01',cat:'Data Security',q:'Does your organization encrypt data at rest?',
+   r:'Yes. All data at rest is encrypted using AES-256 encryption. Encryption keys are managed through a dedicated key management service with strict access controls, regular key rotation, and audit logging of all key usage.',
+   controls:'ISO 27001 A.8.24 · NIST PR.DS-01 · SOC 2 CC6.1',fw:['iso','nist','soc'],
+   evidence:'Encryption configuration documentation, key management policy, infrastructure audit reports'},
+
+  {id:'DS-02',cat:'Data Security',q:'Is data encrypted in transit?',
+   r:'Yes. All data transmitted over public or private networks is encrypted using TLS 1.2 or higher. Unencrypted protocols (HTTP, FTP) are disabled. Certificate management follows industry best practices with automated renewal processes.',
+   controls:'ISO 27001 A.8.24 · NIST PR.DS-02 · SOC 2 CC6.7',fw:['iso','nist','soc'],
+   evidence:'TLS configuration screenshots, network security policy, certificate inventory'},
+
+  {id:'DS-03',cat:'Data Security',q:'How is sensitive data classified and handled?',
+   r:'Our organization maintains a formal data classification policy that categorizes data into four tiers: Public, Internal, Confidential, and Highly Confidential. Each classification has defined handling requirements covering storage, transmission, access, and disposal. Data owners are responsible for classifying data under their custody.',
+   controls:'ISO 27001 A.5.12, A.5.13 · NIST ID.AM-05 · GDPR Art. 25',fw:['iso','nist','gdpr'],
+   evidence:'Data classification policy, data inventory register, training records'},
+
+  {id:'DS-04',cat:'Data Security',q:'What is your data retention and disposal policy?',
+   r:'We maintain a documented data retention schedule aligned with regulatory requirements and business needs. Data is retained only for the period necessary and securely disposed of at end of retention using methods appropriate to the classification level (e.g., cryptographic erasure for cloud storage, certified destruction for physical media). Disposal is documented and auditable.',
+   controls:'ISO 27001 A.8.10 · NIST PR.DS-03 · GDPR Art. 5(1)(e) · PIPEDA Principle 5',fw:['iso','nist','gdpr','pipeda'],
+   evidence:'Data retention schedule, disposal certificates, media destruction policy'},
+
+  {id:'DS-05',cat:'Data Security',q:'Do you have a data loss prevention (DLP) program?',
+   r:'Yes. Our DLP program includes technical controls to prevent unauthorized data exfiltration, including endpoint DLP agents, email scanning, and network-level controls. DLP policies are reviewed quarterly and updated to reflect the current threat landscape and business changes.',
+   controls:'ISO 27001 A.8.12 · NIST PR.DS-05 · SOC 2 CC6.7',fw:['iso','nist','soc'],
+   evidence:'DLP policy, DLP tool configuration, incident reports'},
+
+  // ── ACCESS CONTROLS ────────────────────────────────────────────────────────
+  {id:'AC-01',cat:'Access Controls',q:'How do you manage user access provisioning and deprovisioning?',
+   r:'Access provisioning follows a formal request and approval process requiring manager and system owner authorization. Access is granted based on least-privilege principles. Deprovisioning is automated upon HR notification of termination and completed within 24 hours. A quarterly user access review (UAR) process validates all active access rights.',
+   controls:'ISO 27001 A.5.16, A.6.5 · NIST PR.AC-01 · SOC 2 CC6.2',fw:['iso','nist','soc'],
+   evidence:'Access provisioning procedure, UAR reports, deprovisioning workflow documentation'},
+
+  {id:'AC-02',cat:'Access Controls',q:'Do you enforce multi-factor authentication (MFA)?',
+   r:'Yes. Multi-factor authentication is mandatory for all privileged access, remote access, and cloud platform access. MFA is enforced through our identity provider for all corporate applications. We support TOTP authenticator apps and hardware security keys. SMS-based MFA is not permitted for privileged accounts.',
+   controls:'ISO 27001 A.8.5 · NIST PR.AC-07 · SOC 2 CC6.1',fw:['iso','nist','soc'],
+   evidence:'MFA enforcement configuration, identity provider screenshots, privileged access policy'},
+
+  {id:'AC-03',cat:'Access Controls',q:'How is privileged access managed?',
+   r:'Privileged access is managed through a Privileged Access Management (PAM) solution. Privileged accounts are separated from standard user accounts, require additional authentication factors, and all privileged sessions are logged and monitored. Standing privileged access is minimized through just-in-time (JIT) access provisioning. Privileged accounts are reviewed monthly.',
+   controls:'ISO 27001 A.8.2 · NIST PR.AC-05 · SOC 2 CC6.1',fw:['iso','nist','soc'],
+   evidence:'PAM solution configuration, privileged access policy, session recording logs'},
+
+  {id:'AC-04',cat:'Access Controls',q:'Do you conduct periodic user access reviews?',
+   r:'Yes. Formal user access reviews (UARs) are conducted quarterly for all systems. System owners and managers certify or revoke access for each user in their purview. Access review results are documented and exceptions tracked to remediation. The process covers all employees, contractors, and third-party users.',
+   controls:'ISO 27001 A.8.2 · NIST PR.AC-01 · SOC 2 CC6.2 · CC6.3',fw:['iso','nist','soc'],
+   evidence:'UAR completion reports, access review procedure, remediation tracking'},
+
+  {id:'AC-05',cat:'Access Controls',q:'How do you enforce segregation of duties (SoD)?',
+   r:'Segregation of duties is enforced through role-based access control (RBAC) with defined incompatible role combinations. Our GRC team maintains a SoD conflict matrix that is reviewed annually. Automated controls prevent assignment of conflicting roles, and any compensating controls required for exceptions are documented and approved by senior management.',
+   controls:'ISO 27001 A.5.15 · NIST PR.AC-04 · SOC 2 CC6.3',fw:['iso','nist','soc'],
+   evidence:'SoD matrix, RBAC configuration, exception register'},
+
+  // ── INCIDENT RESPONSE ──────────────────────────────────────────────────────
+  {id:'IR-01',cat:'Incident Response',q:'Do you have a documented Incident Response Plan?',
+   r:'Yes. Our Incident Response Plan (IRP) is documented, approved by senior management, and reviewed annually. It covers detection, containment, eradication, recovery, and post-incident review phases. The IRP is tested through tabletop exercises at minimum annually, with results incorporated into plan updates.',
+   controls:'ISO 27001 A.5.26 · NIST RS.RP-01 · SOC 2 CC7.3',fw:['iso','nist','soc'],
+   evidence:'Incident Response Plan document, tabletop exercise records, plan review history'},
+
+  {id:'IR-02',cat:'Incident Response',q:'What is your breach notification timeline and process?',
+   r:'Our breach notification process is aligned with applicable regulatory requirements. For GDPR, we notify the relevant supervisory authority within 72 hours of becoming aware of a personal data breach. Affected individuals are notified without undue delay when the breach is likely to result in high risk to their rights and freedoms. Under PIPEDA, we notify the Office of the Privacy Commissioner and affected individuals as required. Customer notification timelines are defined in contractual agreements.',
+   controls:'ISO 27001 A.5.26 · GDPR Art. 33, 34 · PIPEDA Breach Regulations',fw:['iso','gdpr','pipeda'],
+   evidence:'Breach notification procedure, regulatory notification templates, contractual SLAs'},
+
+  {id:'IR-03',cat:'Incident Response',q:'How do you detect and monitor security incidents?',
+   r:'We operate a Security Information and Event Management (SIEM) system that aggregates logs from all critical systems and applies correlation rules to detect anomalous activity. Alerts are triaged by our security operations function with defined escalation procedures. We also operate endpoint detection and response (EDR) tooling across all managed devices.',
+   controls:'ISO 27001 A.8.15, A.8.16 · NIST DE.CM-01 · SOC 2 CC7.2',fw:['iso','nist','soc'],
+   evidence:'SIEM configuration, alerting policy, SOC runbooks, monitoring dashboard'},
+
+  {id:'IR-04',cat:'Incident Response',q:'Do you conduct post-incident reviews?',
+   r:'Yes. All significant security incidents undergo a formal post-incident review (post-mortem) within five business days of resolution. The review identifies root cause, contributing factors, timeline of events, and lessons learned. Corrective actions are tracked to completion and incorporated into updated procedures and controls.',
+   controls:'ISO 27001 A.5.27 · NIST RS.AN-02 · SOC 2 CC7.4',fw:['iso','nist','soc'],
+   evidence:'Post-incident review reports, corrective action register, lessons-learned documentation'},
+
+  // ── VULNERABILITY MANAGEMENT ───────────────────────────────────────────────
+  {id:'VM-01',cat:'Vulnerability Management',q:'How do you manage vulnerabilities in your systems?',
+   r:'We operate a formal vulnerability management program that includes continuous automated scanning of all infrastructure, applications, and endpoints. Vulnerabilities are prioritized by CVSS score and business context. Our remediation SLAs are: Critical — 24 hours, High — 7 days, Medium — 30 days, Low — 90 days. Vulnerability status is tracked and reported to management monthly.',
+   controls:'ISO 27001 A.8.8 · NIST ID.RA-01 · SOC 2 CC7.1',fw:['iso','nist','soc'],
+   evidence:'Vulnerability scanning reports, remediation SLA policy, patch management procedure'},
+
+  {id:'VM-02',cat:'Vulnerability Management',q:'Do you conduct penetration testing?',
+   r:'Yes. We engage independent, third-party security firms to conduct penetration testing at minimum annually. Tests cover network infrastructure, web applications, and cloud environments. Findings are remediated according to severity, and a letter of attestation is available upon request. We also conduct internal red team exercises as part of our security assessment program.',
+   controls:'ISO 27001 A.8.8 · NIST ID.RA-05 · SOC 2 CC7.1',fw:['iso','nist','soc'],
+   evidence:'Penetration test reports (redacted), remediation tracking, attestation letter'},
+
+  {id:'VM-03',cat:'Vulnerability Management',q:'How do you manage software patching?',
+   r:'We maintain a patch management program covering all operating systems, applications, and third-party software. Critical patches are deployed within 24–48 hours of vendor release. Standard patches follow a monthly patching cycle with testing in non-production environments prior to production deployment. Patch compliance is monitored and reported to management.',
+   controls:'ISO 27001 A.8.8 · NIST PR.MA-01 · SOC 2 CC7.1',fw:['iso','nist','soc'],
+   evidence:'Patch management policy, patch compliance reports, change management records'},
+
+  // ── BUSINESS CONTINUITY ────────────────────────────────────────────────────
+  {id:'BC-01',cat:'Business Continuity',q:'Do you have a Business Continuity Plan (BCP) and Disaster Recovery Plan (DRP)?',
+   r:'Yes. We maintain documented Business Continuity and Disaster Recovery Plans that are approved by senior management, reviewed annually, and tested at minimum once per year. The plans define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) for all critical systems and services. Results of testing are used to improve the plans.',
+   controls:'ISO 27001 A.5.29, A.5.30 · NIST RC.RP-01 · SOC 2 A1.3',fw:['iso','nist','soc'],
+   evidence:'BCP/DRP documents, test reports, RTO/RPO documentation'},
+
+  {id:'BC-02',cat:'Business Continuity',q:'What are your RTO and RPO commitments?',
+   r:'Our Recovery Time Objective (RTO) and Recovery Point Objective (RPO) vary by system criticality tier. Tier 1 (Critical) systems: RTO 4 hours, RPO 1 hour. Tier 2 (Essential) systems: RTO 24 hours, RPO 4 hours. Tier 3 (Standard) systems: RTO 72 hours, RPO 24 hours. These objectives are validated through annual DR testing.',
+   controls:'ISO 27001 A.5.30 · NIST RC.RP-01 · SOC 2 A1.2',fw:['iso','nist','soc'],
+   evidence:'DR test reports, system criticality register, RTO/RPO documentation'},
+
+  {id:'BC-03',cat:'Business Continuity',q:'How do you handle data backup and restoration?',
+   r:'All critical data is backed up according to a documented backup schedule. Production databases are backed up daily with transaction log backups every 15 minutes. Backups are encrypted at rest, stored in geographically separate locations, and tested for restoration quarterly. Backup integrity is verified through automated checksums.',
+   controls:'ISO 27001 A.8.13 · NIST PR.DS-04 · SOC 2 A1.2',fw:['iso','nist','soc'],
+   evidence:'Backup policy, backup schedule, restoration test records, backup monitoring reports'},
+
+  // ── THIRD-PARTY RISK ───────────────────────────────────────────────────────
+  {id:'TP-01',cat:'Third-Party Risk',q:'How do you assess the security of your vendors and sub-processors?',
+   r:'We operate a formal Third-Party Risk Management (TPRM) program. All vendors with access to our systems or data are subject to a security assessment prior to onboarding, including a security questionnaire review and evaluation of certifications (ISO 27001, SOC 2). High-risk vendors undergo annual re-assessment. We maintain a vendor risk register tracking assessment status and risk ratings.',
+   controls:'ISO 27001 A.5.19, A.5.20 · NIST ID.SC-02 · SOC 2 CC9.2 · GDPR Art. 28',fw:['iso','nist','soc','gdpr'],
+   evidence:'Vendor risk assessment questionnaire, vendor risk register, TPRM policy'},
+
+  {id:'TP-02',cat:'Third-Party Risk',q:'Do you have Data Processing Agreements (DPAs) with all sub-processors?',
+   r:'Yes. We maintain signed Data Processing Agreements with all sub-processors that process personal data on our behalf, as required by GDPR Article 28 and applicable privacy regulations. DPAs specify the nature, purpose, and duration of processing, data subject rights obligations, security requirements, and breach notification obligations.',
+   controls:'ISO 27001 A.5.20 · GDPR Art. 28 · PIPEDA',fw:['iso','gdpr','pipeda'],
+   evidence:'DPA templates, signed DPA register, sub-processor list'},
+
+  {id:'TP-03',cat:'Third-Party Risk',q:'Do you maintain a list of sub-processors?',
+   r:'Yes. We maintain a current register of all sub-processors that have access to customer data. This list includes the sub-processor name, nature of processing, data categories processed, and geographic location. Customers are notified of changes to the sub-processor list in accordance with the notification timeline specified in our Data Processing Agreement.',
+   controls:'ISO 27001 A.5.19 · GDPR Art. 28(2) · NIST ID.SC-03',fw:['iso','gdpr','nist'],
+   evidence:'Sub-processor register, DPA change notification procedure'},
+
+  // ── COMPLIANCE & CERTIFICATIONS ────────────────────────────────────────────
+  {id:'CC-01',cat:'Compliance & Certifications',q:'What security certifications does your organization hold?',
+   r:'Our organization holds current ISO 27001:2022 certification covering our information security management system. We also produce an annual SOC 2 Type II report covering the Security, Availability, and Confidentiality Trust Service Criteria. Certificates and reports are available to customers under NDA upon request.',
+   controls:'ISO 27001 A.5.36 · SOC 2',fw:['iso','soc'],
+   evidence:'ISO 27001 certificate, SOC 2 Type II report, certification scope statement'},
+
+  {id:'CC-02',cat:'Compliance & Certifications',q:'Are you compliant with GDPR?',
+   r:'Yes. We have implemented a comprehensive GDPR compliance program that includes a legal basis for all processing activities documented in our Record of Processing Activities (RoPA), Data Subject Rights procedures, Privacy by Design and Default practices, Data Protection Impact Assessments (DPIAs) for high-risk processing, and appointment of a Data Protection Officer where required.',
+   controls:'GDPR Art. 5, 6, 13, 24, 25, 30, 35',fw:['gdpr'],
+   evidence:'RoPA, DPIA register, privacy notices, DSR procedure, DPO appointment'},
+
+  {id:'CC-03',cat:'Compliance & Certifications',q:'Are you compliant with PIPEDA?',
+   r:'Yes. Our privacy program is aligned with PIPEDA\'s 10 Fair Information Principles covering accountability, identifying purpose, consent, limiting collection, limiting use, accuracy, safeguards, openness, individual access, and challenging compliance. We have a designated Privacy Officer and maintain documented privacy policies and breach notification procedures.',
+   controls:'PIPEDA Principles 1–10 · Breach Regulations',fw:['pipeda'],
+   evidence:'Privacy policy, PIPEDA compliance documentation, Privacy Officer appointment'},
+
+  {id:'CC-04',cat:'Compliance & Certifications',q:'How do you ensure ongoing regulatory compliance?',
+   r:'We maintain a regulatory compliance monitoring program that tracks applicable laws, regulations, and contractual requirements. A compliance calendar is maintained identifying key deadlines and obligations. Internal audits are conducted annually to assess compliance posture. Material regulatory changes are reviewed by legal and compliance functions and incorporated into our control framework.',
+   controls:'ISO 27001 A.5.31, A.5.36 · NIST GV.OC-05',fw:['iso','nist'],
+   evidence:'Regulatory compliance register, internal audit reports, compliance calendar'},
+
+  // ── SECURITY GOVERNANCE ────────────────────────────────────────────────────
+  {id:'SG-01',cat:'Security Governance',q:'Does your organization have a documented Information Security Policy?',
+   r:'Yes. Our Information Security Policy is approved by senior management, communicated to all employees and relevant external parties, and reviewed annually or following significant changes. The policy establishes our commitment to information security, defines roles and responsibilities, and provides the framework for setting security objectives.',
+   controls:'ISO 27001 A.5.1 · NIST GV.PO-01 · SOC 2 CC1.3',fw:['iso','nist','soc'],
+   evidence:'Information Security Policy, board approval record, communication records'},
+
+  {id:'SG-02',cat:'Security Governance',q:'How is information security governed within your organization?',
+   r:'Information security governance is overseen by an Information Security Committee that meets quarterly, comprising the CISO, CTO, Legal, and senior business representatives. The committee reviews security risks, approves policies, tracks key metrics, and provides strategic direction. Security performance is reported to the Board of Directors annually.',
+   controls:'ISO 27001 A.5.2 · NIST GV.OC-01 · SOC 2 CC1.2',fw:['iso','nist','soc'],
+   evidence:'Committee charter, meeting minutes, Board reporting'},
+
+  {id:'SG-03',cat:'Security Governance',q:'Do you conduct security risk assessments?',
+   r:'Yes. We conduct formal information security risk assessments at minimum annually and following significant changes to our systems, processes, or threat landscape. Our risk assessment methodology follows ISO 27001 requirements and includes asset identification, threat and vulnerability analysis, likelihood and impact assessment, and risk treatment planning.',
+   controls:'ISO 27001 Cl.6.1.2 · NIST ID.RA-01 · SOC 2 CC3.2',fw:['iso','nist','soc'],
+   evidence:'Risk assessment reports, risk register, risk treatment plans'},
+
+  {id:'SG-04',cat:'Security Governance',q:'What security awareness training do you provide to employees?',
+   r:'All employees complete mandatory security awareness training upon joining and annually thereafter. Training covers phishing recognition, password security, data handling, incident reporting, and acceptable use. Phishing simulation exercises are conducted quarterly. Role-specific training is provided for staff with elevated access or data handling responsibilities. Completion is tracked and non-compliance escalated to management.',
+   controls:'ISO 27001 A.6.3 · NIST PR.AT-01 · SOC 2 CC1.4',fw:['iso','nist','soc'],
+   evidence:'Training completion reports, training curriculum, phishing simulation results'},
+
+  // ── PRIVACY ────────────────────────────────────────────────────────────────
+  {id:'PV-01',cat:'Privacy',q:'How do you handle data subject access requests (DSARs)?',
+   r:'We have a documented Data Subject Rights procedure that covers all rights under applicable privacy legislation including access, rectification, erasure, restriction, portability, and objection. Requests are acknowledged within 72 hours and fulfilled within the statutory timeframe (30 days under GDPR, with provision for extension). A dedicated intake process ensures all requests are tracked and responded to appropriately.',
+   controls:'GDPR Art. 15–22 · PIPEDA Principle 9',fw:['gdpr','pipeda'],
+   evidence:'DSAR procedure, DSAR log, response templates, fulfillment metrics'},
+
+  {id:'PV-02',cat:'Privacy',q:'Do you conduct Data Protection Impact Assessments (DPIAs)?',
+   r:'Yes. We conduct DPIAs for all new processing activities likely to result in high risk to individuals, including large-scale processing of special category data, systematic monitoring, and automated decision-making. DPIAs are conducted prior to processing commencing. Results are reviewed by the Data Protection Officer and inform the design of privacy controls.',
+   controls:'GDPR Art. 35 · ISO 27001 A.5.34',fw:['gdpr','iso'],
+   evidence:'DPIA register, DPIA template, completed DPIAs, DPO review records'},
+
+  {id:'PV-03',cat:'Privacy',q:'What is your approach to Privacy by Design?',
+   r:'Privacy by Design is embedded in our system development lifecycle. Privacy requirements are identified during the design phase, DPIAs are conducted for high-risk processing, and privacy controls are implemented as part of the build rather than added retrospectively. Data minimization, pseudonymization, and purpose limitation principles are applied from the outset of all new projects.',
+   controls:'GDPR Art. 25 · ISO 27001 A.5.34 · PIPEDA Principle 4.3',fw:['gdpr','iso','pipeda'],
+   evidence:'SDLC documentation, Privacy by Design checklist, design review records'},
+];
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+var currentCat='all';
+var currentFw='all';
+var expanded={};
+
+function setFw(fw,btn){
+  currentFw=fw;
+  document.querySelectorAll('.fw-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderLibrary();
+}
+
+function setCat(cat,btn){
+  currentCat=cat;
+  document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderLibrary();
+}
+
+// ── CATEGORY TAGS ─────────────────────────────────────────────────────────────
+var CAT_COLORS={
+  'Data Security':       {bg:'rgba(79,142,247,0.12)',color:'#4f8ef7',border:'rgba(79,142,247,0.3)'},
+  'Access Controls':     {bg:'rgba(46,204,138,0.12)',color:'#2ecc8a',border:'rgba(46,204,138,0.3)'},
+  'Incident Response':   {bg:'rgba(240,82,82,0.12)',color:'#f05252',border:'rgba(240,82,82,0.3)'},
+  'Vulnerability Management':{bg:'rgba(245,166,35,0.12)',color:'#f5a623',border:'rgba(245,166,35,0.3)'},
+  'Business Continuity': {bg:'rgba(34,211,238,0.12)',color:'#22d3ee',border:'rgba(34,211,238,0.3)'},
+  'Third-Party Risk':    {bg:'rgba(155,108,255,0.12)',color:'#9b6cff',border:'rgba(155,108,255,0.3)'},
+  'Compliance & Certifications':{bg:'rgba(245,208,32,0.12)',color:'#f5d020',border:'rgba(245,208,32,0.3)'},
+  'Security Governance': {bg:'rgba(245,166,35,0.12)',color:'#f5a623',border:'rgba(245,166,35,0.3)'},
+  'Privacy':             {bg:'rgba(46,204,138,0.12)',color:'#2ecc8a',border:'rgba(46,204,138,0.3)'},
+};
+
+// ── RENDER CATEGORY FILTER ────────────────────────────────────────────────────
+function renderCatFilter(){
+  var cats=['all'].concat([...new Set(LIBRARY.map(function(q){return q.cat;}))]);
+  var html='';
+  cats.forEach(function(c){
+    var count=c==='all'?LIBRARY.length:LIBRARY.filter(function(q){return q.cat===c;}).length;
+    html+='<button class="cat-btn'+(currentCat===c?' active':'')+'" onclick="setCat(\''+escJs(c)+'\',this)">'+escHtml(c==='all'?'All Categories':c)+' ('+count+')</button>';
+  });
+  document.getElementById('cat-filter').innerHTML=html;
+}
+
+// ── RENDER STATS ──────────────────────────────────────────────────────────────
+function renderStats(){
+  var cats=[...new Set(LIBRARY.map(function(q){return q.cat;}))];
+  var fws=[...new Set(LIBRARY.flatMap(function(q){return q.fw;}))];
+  document.getElementById('stats-row').innerHTML=
+    scard('Total Responses',LIBRARY.length,'Ready to use')+
+    scard('Categories',cats.length,'Security domains')+
+    scard('Frameworks',fws.length,'Standards covered','var(--orange)')+
+    scard('Evidence Hints',LIBRARY.filter(function(q){return q.evidence;}).length,'With evidence guidance','var(--green)');
+}
+
+function scard(label,val,sub,color){
+  return '<div class="stat-card"><div class="stat-label">'+label+'</div>'
+    +'<div class="stat-val"'+(color?' style="color:'+color+'"':'')+'>'+val+'</div>'
+    +'<div class="stat-sub">'+sub+'</div></div>';
+}
+
+// ── RENDER LIBRARY ────────────────────────────────────────────────────────────
+function renderLibrary(){
+  var search=(document.getElementById('search-input').value||'').toLowerCase();
+  var filtered=LIBRARY.filter(function(q){
+    if(currentCat!=='all'&&q.cat!==currentCat)return false;
+    if(currentFw!=='all'&&q.fw.indexOf(currentFw)===-1)return false;
+    if(search&&(q.q+q.r+q.cat+q.controls).toLowerCase().indexOf(search)===-1)return false;
+    return true;
+  });
+
+  document.getElementById('results-info').textContent='Showing '+filtered.length+' of '+LIBRARY.length+' responses';
+
+  if(!filtered.length){
+    document.getElementById('library-container').innerHTML='<div class="empty-state"><div class="esi">🔍</div><div>No responses match your filters. Try adjusting your search or category selection.</div></div>';
+    return;
+  }
+
+  // Group by category
+  var grouped={};
+  filtered.forEach(function(q){
+    if(!grouped[q.cat])grouped[q.cat]=[];
+    grouped[q.cat].push(q);
+  });
+
+  var html='';
+  Object.keys(grouped).forEach(function(cat){
+    var cc=CAT_COLORS[cat]||{bg:'var(--orange-dim)',color:'var(--orange)',border:'rgba(245,166,35,.3)'};
+    html+='<div style="margin-bottom:8px;margin-top:24px"><div style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:'+cc.color+';padding:6px 12px;background:'+cc.bg+';border-radius:6px;display:inline-block;border:1px solid '+cc.border+'">'+escHtml(cat)+' — '+grouped[cat].length+' response'+(grouped[cat].length!==1?'s':'')+'</div></div>';
+
+    grouped[cat].forEach(function(q){
+      var fwTagsHtml=q.fw.map(function(f){
+        var map={iso:{cls:'fw-tag-iso',label:'ISO 27001'},soc:{cls:'fw-tag-soc',label:'SOC 2'},nist:{cls:'fw-tag-nist',label:'NIST CSF'},gdpr:{cls:'fw-tag-gdpr',label:'GDPR'},pipeda:{cls:'fw-tag-pipeda',label:'PIPEDA'}};
+        var m=map[f]||{cls:'',label:f};
+        return '<span class="fw-tag '+m.cls+'">'+m.label+'</span>';
+      }).join('');
+
+      html+='<div class="q-card" id="card-'+q.id+'">'
+        +'<div class="q-card-header">'
+        +'<div class="q-meta">'
+        +'<span class="cat-tag" style="background:'+cc.bg+';color:'+cc.color+';border:1px solid '+cc.border+'">'+escHtml(q.cat)+'</span>'
+        +'<span class="q-number">'+q.id+'</span>'
+        +'</div>'
+        +'<div class="fw-tags">'+fwTagsHtml+'</div>'
+        +'</div>'
+        +'<div class="q-question">'+escHtml(q.q)+'</div>'
+        +'<div class="q-response" id="resp-'+q.id+'">'+escHtml(q.r)+'</div>'
+        +'<div class="q-controls">📎 '+escHtml(q.controls)+'</div>'
+        +'<div class="q-actions">'
+        +'<button class="copy-btn" id="copy-'+q.id+'" onclick="copyResponse(\''+q.id+'\')">📋 Copy Response</button>'
+        +(q.evidence?'<button class="expand-btn" onclick="toggleEvidence(\''+q.id+'\')">💡 Evidence Tips</button>':'')
+        +'</div>'
+        +(q.evidence?'<div class="q-evidence" id="ev-'+q.id+'"><strong>Suggested Evidence:</strong><br>'+escHtml(q.evidence)+'</div>':'')
+        +'</div>';
+    });
+  });
+
+  document.getElementById('library-container').innerHTML=html;
+}
+
+// ── COPY RESPONSE ─────────────────────────────────────────────────────────────
+function copyResponse(id){
+  var q=LIBRARY.find(function(x){return x.id===id;});
+  if(!q)return;
+  var text='Q: '+q.q+'\n\nA: '+q.r+'\n\nFramework Controls: '+q.controls;
+  try{
+    navigator.clipboard.writeText(text).then(function(){
+      var btn=document.getElementById('copy-'+id);
+      if(btn){btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='📋 Copy Response';btn.classList.remove('copied');},2000);}
+      showToast('✅ Response copied to clipboard');
+    }).catch(function(){fallbackCopy(text,id);});
+  }catch(e){fallbackCopy(text,id);}
+}
+
+function fallbackCopy(text,id){
+  var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');showToast('✅ Copied!');}catch(e){showToast('⚠️ Copy failed — please select and copy manually');}
+  document.body.removeChild(ta);
+}
+
+// ── TOGGLE EVIDENCE ───────────────────────────────────────────────────────────
+function toggleEvidence(id){
+  var el=document.getElementById('ev-'+id);
+  if(el)el.classList.toggle('open');
+}
+
+// ── EXPORT ALL ────────────────────────────────────────────────────────────────
+function exportAll(){
+  var data={exported:new Date().toISOString(),tool:'Security Questionnaire Library',author:'Chris Olowo, PMP®',responses:LIBRARY};
+  var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;
+  a.download='security-questionnaire-library-'+new Date().toISOString().split('T')[0]+'.json';
+  a.click();URL.revokeObjectURL(url);
+  showToast('⬇ Library exported as JSON');
+}
+
+// ── UTILITIES ─────────────────────────────────────────────────────────────────
+function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function escJs(s){return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+renderStats();
+renderCatFilter();
+renderLibrary();
+</script>
+</body>
+</html>
